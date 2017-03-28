@@ -1,0 +1,56 @@
+
+
+function Square(x, y, active) {
+
+	this.x = x * floor(window.innerWidth * 0.20) + floor(window.innerWidth * 0.1)
+	this.y = y *  floor(window.innerWidth * 0.20) +  floor(window.innerHeight * 0.1)
+	this.w =  floor(window.innerWidth * 0.20)
+	this.h =  floor(window.innerWidth * 0.20)
+
+	this.active = active
+	this.colR = random(255)
+	this.colG = random(255)
+	this.colB = random(255)
+
+	this.draw = function() {
+		
+		diffcolR = abs(this.colR - activeR)
+		if (diffcolR < 20) {
+			this.colR = random(255)
+		}
+		noStroke()
+		if (this.active === true) {
+			fill(activeR, activeG, activeB)
+		} else {
+			fill(this.colR, this.colG, this.colB)
+		}
+		rect(this.x, this.y, this.w, this.h)
+	}
+
+	this.clicked = function() {
+
+		if (mouseX > this.x && mouseX < (this.x + this.w) &&
+		 mouseY > this.y && mouseY < this.y + this.h) {
+		 	if (this.active === true) {
+				console.log("pressed activesquare")
+				pickActiveSquare()
+				currentLevel++
+				for(i = 0; i < 15; i++) {
+					squares[i].colR = random(255)
+					squares[i].colG = random(255)
+					squares[i].colB = random(255)
+				}
+			} else if (this.active !== true) {
+				console.log("lose")
+				currentLevel = 1
+				pickActiveSquare()
+				for(i = 0; i < 15; i++) {
+					squares[i].colR = random(255)
+					squares[i].colG = random(255)
+					squares[i].colB = random(255)
+				}
+			}
+		}
+	}
+
+}
