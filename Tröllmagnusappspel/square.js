@@ -40,6 +40,7 @@ function Square(x, y, active) {
 					squares[i].colG = random(255)
 					squares[i].colB = random(255)
 				}
+				timer+= timervalue
 			} else if (this.active !== true) {
 				console.log("lose")
 				currentLevel = 1
@@ -49,6 +50,7 @@ function Square(x, y, active) {
 					squares[i].colG = random(255)
 					squares[i].colB = random(255)
 				}
+				timer = 5
 			}
 		}
 	}

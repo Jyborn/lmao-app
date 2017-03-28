@@ -11,6 +11,9 @@ function setup() {
 	}
 
 	currentLevel = 1
+	timer = 5
+	timervalue = 1
+	timerdelay = 0
 	console.log(window.innerWidth)
 	console.log(window.innerHeight)
 
@@ -38,7 +41,22 @@ function draw() {
 	fill(255,0,255)
 	textSize(80)
 	noStroke()
-	text("Level: " + currentLevel, window.innerWidth * 0.1, (window.innerHeight * 0.9))
+	text("Level: " + currentLevel, window.innerWidth * 0.5, (window.innerHeight * 0.9))
+	fill(0)
+	textSize(50)
+	textAlign(CENTER)
+	text("" + timer, window.innerWidth * 0.5, floor(window.innerHeight * 0.08))
+
+	timerdelay++
+	if (timerdelay === 60) {
+		timer--
+		timerdelay = 0
+	}
+
+	if (timer <= 0) {
+		timer = 0
+		lose()
+	}
 }
 
 function mouseClicked() {
@@ -57,4 +75,9 @@ function pickActiveSquare() {
 	activeSquare = floor(random(0 ,15))
 	squares[activeSquare].active = true
 
+}
+
+function lose() {
+	currentLevel = 1
+	
 }
