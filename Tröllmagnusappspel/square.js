@@ -13,7 +13,7 @@ function Square(x, y, active) {
 	this.colB = random(255)
 
 	this.draw = function() {
-		
+		//används i gameplay() i gameplay 
 		diffcolR = abs(this.colR - activeR)
 		if (diffcolR < 20) {
 			this.colR = random(255)
@@ -28,7 +28,7 @@ function Square(x, y, active) {
 	}
 
 	this.clicked = function() {
-
+		//används i mouse.clicked i main
 		if (mouseX > this.x && mouseX < (this.x + this.w) &&
 		 mouseY > this.y && mouseY < this.y + this.h) {
 		 	if (this.active === true) {
@@ -43,14 +43,7 @@ function Square(x, y, active) {
 				timer+= timervalue
 			} else if (this.active !== true) {
 				console.log("lose")
-				currentLevel = 1
-				pickActiveSquare()
-				for(i = 0; i < 15; i++) {
-					squares[i].colR = random(255)
-					squares[i].colG = random(255)
-					squares[i].colB = random(255)
-				}
-				timer = 5
+				gamestate = "lose"
 			}
 		}
 	}

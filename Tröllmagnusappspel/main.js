@@ -6,68 +6,29 @@ function setup() {
 
 	createCanvas(sWidth, sHeight)
 
-	if (gamestate === "play") {
-		for(i = 0; i < 4; i++) {
-			for(j = 0; j < 4; j++) {
-				squares.push(new Square(i, j, false))
-			}
-		}
-
-		currentLevel = 1
-		timer = 5
-		timervalue = 1
-		timerdelay = 0
-		console.log(sWidth)
-		console.log(sHeight)
-
-		pickActiveSquare()	
-
-		activeR = 200
-		activeG = 0
-		activeB = 100
-
-	}
-
 }
 
 function draw() {
 
 
 	if (gamestate === "menu") {
-		splashScreen = new SplashScreen()
+		//visa menu 
+		menu = new Menu()
 	}
 
-	if (gamestate === "play") {
-		background(activeR, activeG, activeB)
+	if (gamestate === "load-game") {
+		//ladda alla värden för att spelet ska funka (setup)
+		loadGame()
+	}
 
-		for(i = 0; i < squares.length; i++) {
-			squares[i].draw()
-		}
+	if (gamestate === "game") {
+		//draw och update
+		gameplay()
+		
+	}
 
-		noFill()
-		stroke(10)
-		strokeWeight(10)
-		rect(floor(sWidth * 0.1), floor(sHeight * 0.1), floor(sWidth * 0.80), floor(sWidth * 0.80))
-
-		fill(255,0,255)
-		textSize(80)
-		noStroke()
-		text("Level: " + currentLevel, sWidth * 0.5, (sHeight * 0.9))
-		fill(0)
-		textSize(50)
-		textAlign(CENTER)
-		text("" + timer, sWidth * 0.5, floor(sHeight * 0.08))
-
-		timerdelay++
-		if (timerdelay === 60) {
-			timer--
-			timerdelay = 0
-		}	
-
-		if (timer <= 0) {
-			timer = 0
-			lose()
-		}
+	if (gamestate === "lose") {
+		loseScreen()
 	}
 
 }
@@ -75,28 +36,14 @@ function draw() {
 function mouseClicked() {
 
 	if (gamestate === "menu") {
-		splashScreen.pressed()
-		setup()
+		//kolla om man trycker på knappen
+		menu.pressed()
 	}
-	if (gamestate === "play") {
-		console.log("click")
+	if (gamestate === "game") {
+		//kolla när man trycker på en ruta
 		for(i = 0; i < squares.length; i++) {
 			squares[i].clicked()
 		}
 	}
 }
 
-function pickActiveSquare() {
-
-	for(i = 0; i < 16; i++) {
-		squares[i].active = false
-	}
-	activeSquare = floor(random(0 ,15))
-	squares[activeSquare].active = true
-
-}
-
-function lose() {
-	gamestate = "lose"
-	
-}
