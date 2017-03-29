@@ -1,4 +1,7 @@
 squares = []
+sWidth = window.innerWidth;
+sHeight = window.innerHeight;
+
 function setup() {
 	createCanvas(window.innerWidth, window.innerHeight)
 
