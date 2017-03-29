@@ -11,6 +11,7 @@ function SplashScreen() {
 	this.pressed = function() {
 		if (dist(this.x, this.y, mouseX, mouseY) < this.r) {
 			console.log("kaosiortenss")
+			gamestate = "play"
 		}
 	}
 }
