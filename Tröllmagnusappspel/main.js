@@ -1,7 +1,5 @@
 squares = []
-
 function setup() {
-
 	createCanvas(window.innerWidth, window.innerHeight)
 
 	for(i = 0; i < 4; i++) {
