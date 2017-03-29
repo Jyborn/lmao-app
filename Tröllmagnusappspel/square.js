@@ -2,10 +2,10 @@
 
 function Square(x, y, active) {
 
-	this.x = x * floor(window.innerWidth * 0.20) + floor(window.innerWidth * 0.1)
-	this.y = y *  floor(window.innerWidth * 0.20) +  floor(window.innerHeight * 0.1)
-	this.w =  floor(window.innerWidth * 0.20)
-	this.h =  floor(window.innerWidth * 0.20)
+	this.x = x * floor(sWidth * 0.20) + floor(sWidth * 0.1)
+	this.y = y *  floor(sWidth * 0.20) +  floor(sHeight * 0.1)
+	this.w =  floor(sWidth * 0.20)
+	this.h =  floor(sWidth * 0.20)
 
 	this.active = active
 	this.colR = random(255)
