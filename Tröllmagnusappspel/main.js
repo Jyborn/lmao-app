@@ -14,7 +14,7 @@ function draw() {
 		splashScreen()
 	}
 
-	if (gamestate === "menu") {
+	if (gamestate === "load-menu") {
 		//visa menu 
 		menu()
 	}
@@ -29,7 +29,7 @@ function draw() {
 		gameplay()	
 	}
 
-	if (gamestate === "lose") {
+	if (gamestate === "load-lose") {
 		loseScreen()
 	}
 

@@ -52,7 +52,7 @@ function gameplay() {
 	if (timer <= 0) {
 		timer = 0
 		squares.splice(0, 16)
-		gamestate = "lose"
+		gamestate = "load-lose"
 	}
 }
 

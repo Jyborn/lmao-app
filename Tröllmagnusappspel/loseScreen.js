@@ -16,7 +16,8 @@ function loseScreen() {
 
 	//rect som är en knapp
 	fill(0, 0, 255)
-	rect(sWidth * 0.25, sHeight * 0.5, sWidth * 0.5, sHeight * 0.1)
+	playagainButton = new Button("rect", sWidth * 0.25, sHeight * 0.5, sWidth * 0.5, sHeight * 0.1)
+	playagainButton.draw()	
 	// text på rect
 	fill(255)
 	textSize(30)
@@ -27,16 +28,14 @@ function loseScreen() {
 	text("Exit game??", sWidth * 0.5, sHeight * 0.7)
 	//cirkelknappen
 	ellipse(sWidth * 0.5, sHeight * 0.85, sHeight * 0.15, sHeight * 0.15)
+	gamestate = "lose"
 }
 
 function loseScreenPressed() {
 	
 	//trycka på play again knappen
-	rectX = sWidth * 0.25
-	rectY = sHeight * 0.5
-	if (mouseX > rectX && mouseX < rectX + (sWidth * 0.5) &&
-	mouseY > rectY && mouseY < rectY + (sHeight * 0.1))	{
-		gamestate = "splashScreen"
+	if (playagainButton.pressed()) {
+		gamestate = "load-menu"
 	}
 
 }

@@ -43,7 +43,7 @@ function Square(x, y, active) {
 			} else if (this.active !== true) {
 				console.log("lose")
 				squares.splice(0, 16)
-				gamestate = "lose"
+				gamestate = "load-lose"
 
 			}
 		}

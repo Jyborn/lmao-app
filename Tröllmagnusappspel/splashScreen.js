@@ -16,5 +16,5 @@ function splashScreen() {
 }
 
 function splashScreenPressed() {
-	gamestate = "menu"
+	gamestate = "load-menu"
 }
