@@ -1,4 +1,6 @@
 function splashScreen() {
+
+	textAlign(LEFT)
 	background(0)
 	fill(255)
 	textSize(sWidth*0.2)

@@ -12,6 +12,7 @@ function Menu() {
 	
 	this.pressed = function() {
 		if (dist(this.x, this.y, mouseX, mouseY) < this.r) {
+			menu.splice(0,1)
 			gamestate = "load-game"
 		}
 	}

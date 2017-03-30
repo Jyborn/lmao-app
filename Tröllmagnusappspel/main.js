@@ -1,4 +1,5 @@
 squares = []
+menu = []
 sWidth = window.innerWidth;
 sHeight = window.innerHeight;
 function setup() {
@@ -9,13 +10,14 @@ function setup() {
 }
 
 function draw() {
+
 	if (gamestate === "splashScreen") {
 		splashScreen()
 	}
 
 	if (gamestate === "menu") {
 		//visa menu 
-		menu = new Menu()
+		menu[0] = new Menu()
 	}
 
 	if (gamestate === "load-game") {
@@ -36,13 +38,16 @@ function draw() {
 
 function mouseClicked() {
 
+	console.log("click")
 	if (gamestate === "splashScreen") {
 		splashScreenPressed()
 	}
+
 	if (gamestate === "menu") {
 		//kolla om man trycker på knappen
-		menu.pressed()
+		menu[0].pressed()
 	}
+
 	if (gamestate === "game") {
 		//kolla när man trycker på en ruta
 		for(i = 0; i < squares.length; i++) {

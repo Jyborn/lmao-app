@@ -10,14 +10,11 @@ function loadGame() {
 	timer = 5
 	timervalue = 1
 	timerdelay = 0
-	console.log(sWidth)
-	console.log(sHeight)
-
-	pickActiveSquare()	
 
 	activeR = 200
 	activeG = 0
 	activeB = 100
+	pickActiveSquare()	
 
 	gamestate = "game"
 
@@ -31,6 +28,8 @@ function gameplay() {
 		squares[i].draw()
 	}
 
+	rectMode(RIGHT)
+	textAlign(CENTER)
 	noFill()
 	stroke(10)
 	strokeWeight(10)
@@ -42,7 +41,6 @@ function gameplay() {
 	text("Level: " + currentLevel, sWidth * 0.5, (sHeight * 0.9))
 	fill(0)
 	textSize(50)
-	textAlign(CENTER)
 	text("" + timer, sWidth * 0.5, floor(sHeight * 0.08))
 
 	timerdelay++
@@ -53,6 +51,7 @@ function gameplay() {
 
 	if (timer <= 0) {
 		timer = 0
+		squares.splice(0, 16)
 		gamestate = "lose"
 	}
 }

@@ -12,12 +12,12 @@ function Square(x, y, active) {
 
 	this.draw = function() {
 		//används i gameplay() i gameplay 
+		rectMode(LEFT)
 		diffcolR = abs(this.colR - activeR)
 		if (diffcolR < 20) {
 			this.colR = random(255)
 		}
 		noStroke()
-		rectMode(RIGHT)
 		if (this.active === true) {
 			fill(activeR, activeG, activeB)
 		} else {
@@ -42,7 +42,9 @@ function Square(x, y, active) {
 				timer+= timervalue
 			} else if (this.active !== true) {
 				console.log("lose")
+				squares.splice(0, 16)
 				gamestate = "lose"
+
 			}
 		}
 	}
