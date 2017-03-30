@@ -1,19 +1,14 @@
-function Menu() {
-	this.r = sWidth * 0.1
-	this.x = sWidth*0.5
-	this.y = sHeight*0.5
-	background(0);
-	textSize(30)
-	textAlign(CENTER)
-	fill(0, 255, 0);
-	ellipse(this.x, this.y, 2 * this.r, 2 * this.r);
-	fill(255);	
-	text("Press to Play", this.x, sHeight*0.3);
-	
-	this.pressed = function() {
-		if (dist(this.x, this.y, mouseX, mouseY) < this.r) {
-			menu.splice(0,1)
-			gamestate = "load-game"
-		}
+
+function menu() {
+
+	background(0)
+	fill(0, 255, 0)
+	menuButton = new Button("circ", sWidth * 0.5, sHeight * 0.5, sWidth * 0.2, sWidth * 0.2)
+	menuButton.draw()
+}
+
+function menupressed() {
+	if (menuButton.pressed()) {
+		gamestate = "load-game"
 	}
 }

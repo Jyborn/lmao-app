@@ -1,5 +1,4 @@
 squares = []
-menu = []
 sWidth = window.innerWidth;
 sHeight = window.innerHeight;
 function setup() {
@@ -17,7 +16,7 @@ function draw() {
 
 	if (gamestate === "menu") {
 		//visa menu 
-		menu[0] = new Menu()
+		menu()
 	}
 
 	if (gamestate === "load-game") {
@@ -45,7 +44,7 @@ function mouseClicked() {
 
 	if (gamestate === "menu") {
 		//kolla om man trycker på knappen
-		menu[0].pressed()
+		menupressed()
 	}
 
 	if (gamestate === "game") {
