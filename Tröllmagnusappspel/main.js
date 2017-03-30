@@ -2,14 +2,16 @@ squares = []
 sWidth = window.innerWidth;
 sHeight = window.innerHeight;
 function setup() {
-	gamestate = "menu"
+	gamestate = "splashScreen"
 
 	createCanvas(sWidth, sHeight)
 
 }
 
 function draw() {
-
+	if (gamestate === "splashScreen") {
+		splashScreen()
+	}
 
 	if (gamestate === "menu") {
 		//visa menu 
@@ -23,8 +25,7 @@ function draw() {
 
 	if (gamestate === "game") {
 		//draw och update
-		gameplay()
-		
+		gameplay()	
 	}
 
 	if (gamestate === "lose") {
@@ -35,6 +36,9 @@ function draw() {
 
 function mouseClicked() {
 
+	if (gamestate === "splashScreen") {
+		splashScreenPressed()
+	}
 	if (gamestate === "menu") {
 		//kolla om man trycker på knappen
 		menu.pressed()
@@ -45,5 +49,8 @@ function mouseClicked() {
 			squares[i].clicked()
 		}
 	}
-}
 
+	if (gamestate === "lose") {
+		loseScreenPressed()
+	}
+}

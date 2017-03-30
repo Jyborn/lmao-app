@@ -1,5 +1,3 @@
-
-
 function Square(x, y, active) {
 
 	this.x = x * floor(sWidth * 0.20) + floor(sWidth * 0.1)
@@ -19,6 +17,7 @@ function Square(x, y, active) {
 			this.colR = random(255)
 		}
 		noStroke()
+		rectMode(RIGHT)
 		if (this.active === true) {
 			fill(activeR, activeG, activeB)
 		} else {
