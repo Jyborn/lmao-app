@@ -33,6 +33,9 @@ function draw() {
 		loseScreen()
 	}
 
+	if (gamestate === "win") {
+		background(255)
+	}
 }
 
 function mouseClicked() {
@@ -49,12 +52,16 @@ function mouseClicked() {
 
 	if (gamestate === "game") {
 		//kolla när man trycker på en ruta
-		for(i = 0; i < squares.length; i++) {
-			squares[i].clicked()
+		for (i = 0; i < squares.length; i++) {
+			squares[i].pressed()
 		}
 	}
 
 	if (gamestate === "lose") {
 		loseScreenPressed()
+	}
+
+	if(gamestate === "win") {
+		
 	}
 }

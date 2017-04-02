@@ -1,52 +1,45 @@
+
+
 function Square(x, y, active) {
-
 	this.x = x * floor(sWidth * 0.20) + floor(sWidth * 0.1)
-	this.y = y *  floor(sWidth * 0.20) +  floor(sHeight * 0.1)
-	this.w =  floor(sWidth * 0.20)
-	this.h =  floor(sWidth * 0.20)
-
+	this.y = y *  floor(sWidth * 0.20) +  floor(sHeight * 0.2)
+	this.w = this.h = floor(sWidth * 0.2)
+	this.r = floor(random(255))
+	this.g = floor(random(255))
+	this.b = floor(random(255))
 	this.active = active
-	this.colR = random(255)
-	this.colG = random(255)
-	this.colB = random(255)
 
-	this.draw = function() {
-		//används i gameplay() i gameplay 
-		rectMode(LEFT)
-		diffcolR = abs(this.colR - activeR)
-		if (diffcolR < 20) {
-			this.colR = random(255)
-		}
+	this.show = function() {
 		noStroke()
-		if (this.active === true) {
-			fill(activeR, activeG, activeB)
-		} else {
-			fill(this.colR, this.colG, this.colB)
-		}
+		fill(this.r, this.g, this.b)
 		rect(this.x, this.y, this.w, this.h)
+		fill(0)
+		textSize(50)
+		text("" + this.active, this.x + 20, this.y + 40)
 	}
 
-	this.clicked = function() {
-		//används i mouse.clicked i main
-		if (mouseX > this.x && mouseX < (this.x + this.w) &&
-		 mouseY > this.y && mouseY < this.y + this.h) {
-		 	if (this.active === true) {
-				console.log("pressed activesquare")
-				pickActiveSquare()
-				currentLevel++
-				for(i = 0; i < 15; i++) {
-					squares[i].colR = random(255)
-					squares[i].colG = random(255)
-					squares[i].colB = random(255)
-				}
-				timer+= timervalue
-			} else if (this.active !== true) {
-				console.log("lose")
-				squares.splice(0, 16)
-				gamestate = "load-lose"
+	this.getColors = function() {
+		colors = [this.r, this.g, this.b]
+		return(colors)
+	}
 
+	this.setPattern = function(num) {
+		this.active = num
+	}
+
+	this.pressed = function() {
+
+		if (mouseX > this.x && mouseX < this.x + this.w && mouseY > this.y && mouseY < this.y + this.h) {
+			if (this.active === currPatternNum) {
+				if (currPatternNum === pattern) {
+					gamestate = "win"
+				}
+				currPatternNum++
+			} else {
+				gamestate = "load-lose"
+				squares.splice(0, 16)
 			}
 		}
-	}
 
+	}
 }
