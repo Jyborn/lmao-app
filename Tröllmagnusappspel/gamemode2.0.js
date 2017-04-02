@@ -1,5 +1,4 @@
-sWidth = window.innerWidth
-sHeight = window.innerHeight
+
 
 function loadGame() {
 
@@ -11,9 +10,11 @@ function loadGame() {
 
 	createPattern()
 	currPatternNum = 1
-	gamestate = "game"
-	
 
+	timerdelay = 0
+	timer = 0
+
+	gamestate = "game"
 }
 
 function gameplay() {
@@ -24,12 +25,25 @@ function gameplay() {
 		for (i = 0; i < squares.length; i++) {
 			squares[i].show()
 			if (squares[i].active === pattern + 1) {
+				stroke(0)
+				strokeWeight(5)
 				fill(squares[i].getColors())
 				rect(pattern * floor(sWidth * 0.2) + floor(sWidth * 0.1), floor(sHeight * 0.05), floor(sWidth * 0.2), floor(sWidth * 0.2))
 				pattern++
 			}
 		}
 	}
+
+	timerdelay++
+	if (timerdelay === 60) {
+		timer++
+		timerdelay = 0
+	}	
+
+	textAlign(CENTER)
+	fill(0)
+	textSize(50)
+	text("TIME: " + timer, floor(window.innerWidth * 0.5), floor(window.innerHeight * 0.85))
 
 }
 

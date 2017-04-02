@@ -13,9 +13,6 @@ function Square(x, y, active) {
 		noStroke()
 		fill(this.r, this.g, this.b)
 		rect(this.x, this.y, this.w, this.h)
-		fill(0)
-		textSize(50)
-		text("" + this.active, this.x + 20, this.y + 40)
 	}
 
 	this.getColors = function() {
@@ -32,7 +29,8 @@ function Square(x, y, active) {
 		if (mouseX > this.x && mouseX < this.x + this.w && mouseY > this.y && mouseY < this.y + this.h) {
 			if (this.active === currPatternNum) {
 				if (currPatternNum === pattern) {
-					gamestate = "win"
+					gamestate = "load-win"
+					squares.splice(0, 16)
 				}
 				currPatternNum++
 			} else {

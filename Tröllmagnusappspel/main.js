@@ -33,8 +33,8 @@ function draw() {
 		loseScreen()
 	}
 
-	if (gamestate === "win") {
-		background(255)
+	if (gamestate === "load-win") {
+		winScreen()
 	}
 }
 
@@ -62,6 +62,6 @@ function mouseClicked() {
 	}
 
 	if(gamestate === "win") {
-		
+		winScreenPressed()
 	}
 }
