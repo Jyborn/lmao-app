@@ -1,6 +1,7 @@
 squares = []
 sWidth = window.innerWidth;
 sHeight = window.innerHeight;
+
 function setup() {
 	gamestate = "splashScreen"
 
@@ -17,6 +18,10 @@ function draw() {
 	if (gamestate === "load-menu") {
 		//visa menu 
 		menu()
+	}
+
+	if (gamestate === "load-mode") {
+		loadModeScreen()
 	}
 
 	if (gamestate === "load-game") {

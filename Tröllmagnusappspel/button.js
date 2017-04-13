@@ -1,5 +1,3 @@
-
-
 function Button(shape, x, y, w, h) {
 
 	this.shape = shape
