@@ -1,16 +1,30 @@
-function Button(shape, x, y, w, h) {
+function Button(shape, x, y, w, h, url) {
 
 	this.shape = shape
 	this.x = x
 	this.y = y
 	this.w = w
 	this.h = h
+	this.setup = false
+	
+	this.setup = function() {
+		this.img = loadImage(url)
+		this.setup = true
+	}
 
 	this.draw = function() {
-		if (this.shape === "rect") {
-			rect(this.x, this.y, this.w, this.h)
-		} else if (this.shape === "circ") {
-			ellipse(this.x, this.y, this.w * 2, this.h * 2)
+
+		if (url === false) {
+			if (this.shape === "rect") {
+				rect(this.x, this.y, this.w, this.h)
+			} else if (this.shape === "circ") {
+				ellipse(this.x, this.y, this.w * 2, this.h * 2)
+			}
+		} else if (url !== false) {
+			if (this.setup != true) {
+				menuButton.setup()
+			}
+			image(this.img, this.x, this.y)
 		}
 	}
 

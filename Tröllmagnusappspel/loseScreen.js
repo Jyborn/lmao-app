@@ -16,7 +16,7 @@ function loseScreen() {
 
 	//rect som är en knapp
 	fill(0, 0, 255)
-	playagainButton = new Button("rect", sWidth * 0.25, sHeight * 0.5, sWidth * 0.5, sHeight * 0.1)
+	playagainButton = new Button("rect", sWidth * 0.25, sHeight * 0.5, sWidth * 0.5, sHeight * 0.1, false)
 	playagainButton.draw()	
 	// text på rect
 	fill(255)

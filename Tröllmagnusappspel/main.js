@@ -4,9 +4,8 @@ sHeight = window.innerHeight;
 
 function setup() {
 	gamestate = "splashScreen"
-
+	imageMode(CENTER)
 	createCanvas(sWidth, sHeight)
-
 }
 
 function draw() {
@@ -18,6 +17,11 @@ function draw() {
 	if (gamestate === "load-menu") {
 		//visa menu 
 		menu()
+	}
+
+	if (gamestate === "menu") {
+		//image(img, menuButton.x, menuButton.y)
+		menuButton.draw()
 	}
 
 	if (gamestate === "load-mode") {

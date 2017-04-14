@@ -1,17 +1,18 @@
 
 function menu() {
 
-	background(0)
+	background(255)
 	textSize(sWidth*0.1)
 	fill(100 , 55, 0)
 	text("Mode", sWidth*0.5, sHeight*0.45)
-	modeButton = new Button("rect", sWidth * (1/3), sHeight * 0.15, sWidth * (1/3), sHeight * 0.2)
+	modeButton = new Button("rect", sWidth * (1/3), sHeight * 0.15, sWidth * (1/3), sHeight * 0.2, false)
 	modeButton.draw()
 	fill(128, 0, 128)
 	text("Press cirkeln to play", sWidth * 0.5, sHeight * 0.9)
-	menuButton = new Button("circ", sWidth * 0.5, sHeight * 0.7, sWidth * 0.2, sWidth * 0.2)
+	menuButton = new Button("circ", sWidth * 0.5, sHeight * 0.7, sWidth * 0.2, sWidth * 0.2, "https://openclipart.org/download/243606/1457637025.svg")
 	menuButton.draw()
 	gamestate = "menu"
+
 }
 
 function menupressed() {
